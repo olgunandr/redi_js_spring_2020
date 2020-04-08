@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Jaldi' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Homework 1</title>
+</head>
+<body>
+    <header>
+        <div class="buttons">
+        <div class="upper_menu">Home</div>
+        <div class="upper_menu">About me</div>
+        <div class="upper_menu">Base page</div>
+    </div>
+    <div class="buttons">
+        <div class="upper_menu">
+            <button id="barsButton"><i class="fa fa-bars"></i></button>
+            <p id="barsAnswer"></p>
+            <script>
+                let barsButtonCmp = document.getElementById("barsButton");
+                let barsAnswerCmp = document.getElementById("barsAnswer");
+
+                function barsButton(event) {
+                    barsAnswerCmp.textContent = "Nothing happpens";
+                }
+                barsButtonCmp.addEventListener("click", barsButton);
+            </script>
+            </div>
+
+        <div class="upper_menu">
+            <button id="luckyButton">Lucky button</button>
+            <p id="luckyAnswer"></p>
+            <script>
+                let luckyButtonCmp = document.getElementById("luckyButton");
+                let luckyAnswerCmp = document.getElementById("luckyAnswer");
+
+                function luckyButton(event) {
+                    luckyAnswerCmp.textContent = "Now you are lucky for sure!";
+                }
+                luckyButtonCmp.addEventListener("click", luckyButton);
+            </script>
+            </div>
+
+        <div class="upper_menu">
+            <button id="clickMeButton">Click me</button>
+            <p id="clickMeAnswer"></p>
+            <script>
+                let clickMeButtonCmp = document.getElementById("clickMeButton");
+                let clickMeAnswerCmp = document.getElementById("clickMeAnswer");
+
+                function clickMeButton(event) {
+                    clickMeAnswerCmp.textContent = "You are lucky!";
+                }
+                clickMeButtonCmp.addEventListener("click", clickMeButton);
+            </script>
+            </div>
+            
+    </div>
+    </header>
+    <content>
+        <h1>My favourite places in Bayern</h1>
+        <div class="block">
+            <h2>Herzogstand</h2>
+            <a href="https://goo.gl/maps/MGydyzbEh51JUvSb7" target="_blank"><img src="https://www.karwendel-urlaub.de/fileadmin/user_upload/Walchensee_Herzogstand_Fahrenberg.jpg" alt="Herzogstand" width="100%"></a>
+            <p class="text"> <a href="https://goo.gl/maps/MGydyzbEh51JUvSb7">Herzogstand</a> is a very beautiful place in the Alps not far from Minich. I used to go there for a weekend before. There are so many hiking routes and views there.</p>
+        </div>
+
+
+        <div class="block">
+            <h2>Viktualienmarkt</h2>
+            <a href="https://goo.gl/maps/eTXRtVWy9xLtpGbC8" target="_blank"><img src="https://www.tz.de/bilder/2019/11/09/13207682/1746853429-viktualienmarkt-im-fruehling-BHXRwdKLvea.jpg" alt="Herzogstand" width="100%"></a>
+            <p class="text"> <a href="https://goo.gl/maps/eTXRtVWy9xLtpGbC8">Viktualienmarkt</a> is a daily food market and a square in the center of Munich. It's so nice to come there for a cup of coffee or a glass of wine and watch the market life.</p>
+        </div>
+
+        <div class="block">
+            <h2>Technische Universität München Cafe</h2>
+            <a href="https://goo.gl/maps/LCb7KGkH882587bu7" target="_blank"><img src="https://www.juergen-reichmann.de/images/pics/1607000/1607940.jpg" width="100%" alt="Technische Universität München Cafe"></a>
+            <p class="text"> <a href="https://goo.gl/maps/LCb7KGkH882587bu7">Technische Universität München Cafe</a> has a wonderful terrace.</p>
+        </div>
+
+    </content>
+
+    <footer>
+        <div class="foot">
+           <p> made by Olga Andreevskikh for REDI: Frontend Development 2</p>
+
+           </div>
+    </footer>
+</body>
+</html>
