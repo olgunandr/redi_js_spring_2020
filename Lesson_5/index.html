@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Jaldi' rel='stylesheet'>
+	<title>Mouseover and mouseleave</title>
+</head>
+<body>
+	<div class="buttonBlock">
+	<button id="clickMeButton" class="newclass">My button</button>
+	</div>
+	<script>
+		let clickMeButton = document.getElementById("clickMeButton");
+		const nameOfTheButton = "My button";
+
+		function clickHandler(event) {
+			console.log('Congratulations! You have just clicked the button');
+		}
+		function mouseOverHandler(event) {
+			console.log('Mouse is now on the button!');
+			clickMeButton.innerText = "Your mouse is here!"
+			clickMeButton.classList.add('big-button');
+			clickMeButton.classList.add('background-changed');	
+		}
+		function mouseLeaveHandler(event) {
+			console.log('Mouse is now not on the button!');
+			clickMeButton.innerText = nameOfTheButton;
+			clickMeButton.classList.remove('big-button');
+			clickMeButton.classList.remove('background-changed');
+		}
+		clickMeButton.addEventListener('click',clickHandler);
+		clickMeButton.addEventListener("mouseover", mouseOverHandler);
+		clickMeButton.addEventListener("mouseleave", mouseLeaveHandler);
+
+
+	</script>
+
+
+
+
+<!-- <script> 
+
+let strangeButtonCmp = document.getElementById("strangeButton");
+const initialLabel = "Strange button";
+
+function clickHandler(event) {
+	console.log('Hey, you just pressed strange button');
+}
+
+function mouseOverHandler(event) {
+	console.log('Mouse here!');
+	strangeButtonCmp.innerText = "What just happened?"
+	strangeButtonCmp.classList.add('inverted-color');
+	strangeButtonCmp.classList.add('big-button');
+}
+
+function mouseLeaveHandler(event) {
+	console.log('Mouse just left that button');
+	strangeButtonCmp.innerText = initialLabel;
+	strangeButtonCmp.classList.remove('inverted-color');
+	strangeButtonCmp.classList.remove('big-button');
+}
+
+strangeButtonCmp.addEventListener("click", clickHandler);
+strangeButtonCmp.addEventListener("mouseover", mouseOverHandler);
+strangeButtonCmp.addEventListener("mouseleave", mouseLeaveHandler);
+
+</script> 
+
+-->
+
+	
+</body>
+</html>
+
