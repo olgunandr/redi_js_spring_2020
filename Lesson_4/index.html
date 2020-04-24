@@ -11,12 +11,10 @@
     <button id="addButton">Add</button>   
     <script>
         let sum = 0;
-        let listOfNumbers = document.getElementById('listOfNumbers');
-        let totalSum = document.getElementById('totalSum');
-        let nextNumber = document.getElementById('nextNumber');
-        let addButton = document.getElementById('addButton');
-    //  totalSum.textContent = sum;
-
+        const listOfNumbers = document.getElementById('listOfNumbers');
+        const totalSum = document.getElementById('totalSum');
+        const nextNumber = document.getElementById('nextNumber');
+        const addButton = document.getElementById('addButton');
         function addNextNumber(event) {
             const nextListItem = document.createElement('li');
             nextListItem.textContent = nextNumber.value;
