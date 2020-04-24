@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <ul id="listOfNumbers"></ul>
+    <p id="totalSum"></p>
+    <input id="nextNumber">
+    <button id="addButton">Add</button>   
+    <script>
+        let sum = 0;
+        const listOfNumbers = document.getElementById('listOfNumbers');
+        const totalSum = document.getElementById('totalSum');
+        const nextNumber = document.getElementById('nextNumber');
+        const addButton = document.getElementById('addButton');
+        function addNextNumber(event) {
+            const nextListItem = document.createElement('li');
+            nextListItem.textContent = nextNumber.value;
+            listOfNumbers.appendChild(nextListItem);
+            sum = sum + parseFloat(nextNumber.value);
+            totalSum.textContent = "Total: " + sum;
+            nextNumber.value = '';
+        }
+        addButton.addEventListener('click', addNextNumber);
+    </script>
+</body>
+</html>
