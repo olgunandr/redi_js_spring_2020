@@ -1,0 +1,78 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+      <h2>Our online shop offers the following wines: </h2>
+            <div id="wineList">
+            </div>
+        </div>
+    <script>
+        let wines = [
+            { 
+                title: 'Primitivo', 
+                type: 'red', 
+                origin: {country: 'Italy', region: 'Salento', winery: 'Verosso'}, 
+                year: 2016, 
+                grapes: 'primitivo', 
+                price: 4.34, 
+                currency: 'EUR'},
+            { 
+                title: 'Chianti', 
+                type: 'red', 
+                origin: {country: 'Italy', region: 'Chianti', winery: 'Piccini'}, 
+                year: 2017, 
+                grapes: 'Cabernet Sauvignon, Merlot, Sangiovese, Tempranillo, Ciliegiolo', 
+                price: 11.82, 
+                currency: 'EUR'},
+            { 
+                title: 'Amarone della Valpolicella Classico', 
+                type: 'red', 
+                origin: {country: 'Italy', region: 'Amarone della Valpolicella Classico', winery: 'Tommasi'}, 
+                year: 2015, 
+                grapes: 'Rondinella, Molinara, Corvinone, Corvina Veronese', 
+                price: 35.90, 
+                currency: 'EUR'},
+            { 
+                title: 'Valdobbiadene Millesimato Brut 2017', 
+                type: 'sparkling', 
+                origin: {country: 'Italy', region: 'Conegliano-Valdobbiadene Prosecco', winery: 'Borgo Molino' }, 
+                year: 2019, 
+                grapes: 'Glera', 
+                price: 14.90, 
+                currency: 'EUR'},
+            { 
+                title: 'Oberhäuser Brücke Riesling Spätlese 2015', 
+                type: 'white', 
+                origin: {country: 'Germany', region: 'Nahe', winery: 'Dönnhoff'}, 
+                year: 2015, 
+                grapes: 'Riesling', 
+                price: 26.50, 
+                currency: 'EUR'},
+        ]     
+        var wine;
+        
+        for (wine of wines) {
+            const wineListEl = document.getElementById('wineList');
+            wineListEl.innerHTML = wineListEl.innerHTML + `
+            <p id="wineTitle">${wine.title}</p>
+            <ul>
+            <li>Type: ${wine.type}</li>
+            <li>Origin: ${wine.origin.country}/${wine.origin.region}/${wine.origin.winery}</li>
+            <li>Year: ${wine.year}</li>
+            <li>Grapes: ${wine.grapes}</li>
+            <li>Price: ${wine.price} ${wine.currency}</li>
+        </ul>
+            `;
+        }
+
+    </script>
+
+</body>
+
+</html>
