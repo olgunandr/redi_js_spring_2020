@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication</title>
+</head>
+
+<body>
+    <h1>Multiply calculator</h1>
+    <ul id="listOfMultipliers"></ul>
+    <input id="multiplier">
+    <button id="addMultiplierButton">Multiply</button>
+    <p id="result"></p>
+    
+    <script>
+        let product = 1;
+        let multiplier = document.getElementById('multiplier');
+        let addMultiplierButton = document.getElementById('addMultiplierButton');
+        let result = document.getElementById('result');
+        let listOfMultipliers = document.getElementById('listOfMultipliers');
+        function multuply(event) {
+            const nextListItem = document.createElement('li');
+            nextListItem.textContent = multiplier.value;
+            listOfMultipliers.appendChild(nextListItem);
+            product = product * parseFloat(multiplier.value);
+            result.textContent = "Total product: " + product;
+            multiplier.value = ' ';
+        }
+        addMultiplierButton.addEventListener('click', multuply);
+
+    </script>
+
+
+
+</body>
+
+</html>
