@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects and attributes</title>
+</head>
+<body>
+    <div id="me">
+    <p>ME:</p>
+        <ul id="myInfo">
+        </ul>
+    </div>
+    <script>
+
+let goodMovie = {
+            title : "Shining",
+            genre : "horror",
+            year : "1984",
+        }
+        let me = {
+            height : 167,
+            age : 25,
+            eyeColor : "green",
+            nationality : "eskimo",
+            hobbies : {
+                sports : true,
+                cooking : false, 
+                favouriteMovie : goodMovie,
+
+            }
+        }
+
+        let friend = {
+            height : 160,
+            age : 30,
+            eyeColor : "grey",
+            nationality : "german",
+            hobbies : {
+                sports : false,
+                cooking : true, 
+                favouriteMovie : goodMovie,
+            }
+        }
+   
+    let myInfo = document.getElementById('myInfo');
+    let newInfoItem = document.createElement('li');
+    newInfoItem.innerText = me.height;
+    myInfo.appendChild(newInfoItem);
+
+   myInfo.innerHTML = `
+    <li>height: ${me.height}</li>
+    <li>age: ${me.age}</li>
+    <li>eye color: ${me.eyeColor}</li>
+    <li>favouriteMovie: ${me.hobbies.favouriteMovie.title}, filmed in ${me.hobbies.favouriteMovie.year}</li>
+        `;
+   
+    </script>
+
+</body>
+</html>

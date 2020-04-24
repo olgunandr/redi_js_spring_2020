@@ -1,0 +1,51 @@
+<!DOCTYPEhtml>
+<html>
+ 
+<head>
+<metacharset="UTF-8">
+<title>lesson 7 arrays</title>
+</head>
+ 
+<body>
+<scriptsrc="https://travisshears.com/apps/random-wiki/0.0.4--alpha3/src.7b19814e.js"></script>
+<scriptsrc="./main.js"></script>
+ 
+<h1>Articles</h1>
+<divid="imagePlace">
+</div>
+<ulid="articlesList">
+ 
+</ul>
+ 
+<script>
+letarticles = [];
+ 
+letperson = {
+name:'Redi',
+imgSrc:'https://mrtim.github.io/js-munich-2020-spring/redi-school-logo.jpg'
+ };
+ 
+constimagePlaceEl = document.getElementById('imagePlace');
+imagePlaceEl.innerHTML = `
+ <p>${person.name}</p>
+ <img src='${person.imgSrc}' />
+ `;
+ 
+window.onRandomWikipediaArticle(function(article) {
+//console.log(article);
+articles.push(article);
+console.log('LENGTH: ', articles.length);
+ 
+letfirstArt = articles[0];
+letlastArt = articles[articles.length - 1];
+ 
+constulEl = document.getElementById('articlesList');
+constliEl = document.createElement('li');
+liEl.innerHTML = lastArt.displaytitle;
+ulEl.appendChild(liEl);
+ 
+ });
+</script>
+</body>
+ 
+</html>

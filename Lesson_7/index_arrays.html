@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>lesson 7 arrays</title>
+</head>
+
+<body>
+    <script src="https://travisshears.com/apps/random-wiki/0.0.4--alpha3/src.7b19814e.js"></script>
+    <h1>Articles</h1>
+        <p id="firstArticle"></p>
+        <p id="lastArticle"></p>
+
+    <ul id="articlesList">
+        
+    </ul>
+    <script>
+        let articles = [];
+        const firstArticleEl = document.getElementById('firstArticle');
+        const lastArticleEl = document.getElementById('lastArticle');
+        const ulEl = document.getElementById('articlesList');
+        function handleArticle(article){
+        //console.log(article);
+        articles.push(article);
+        //console.log('length',articles.length);
+        let firstArt = articles[0];
+        let lastArt = articles[articles.length - 1];
+        //console.log(lastArt.displaytitle);
+        const liEl = document.createElement('li');
+        liEl.innerHTML = lastArt.displaytitle;
+        ulEl.appendChild(liEl); 
+        const titleEl = document.createElement('p');
+        titleEl.innerText = article.title;
+        firstArticleEl.textContent = 'First article: ' + firstArt.displaytitle;
+        lastArticleEl.textContent = 'Last article: ' + lastArt.displaytitle;
+    }
+    window.onRandomWikipediaArticle(handleArticle); 
+    
+
+    
+    </script>
+</body>
+
+</html>
