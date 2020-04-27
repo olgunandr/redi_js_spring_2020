@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lesson 8 - Loops</title>
+  </head>
+
+  <body>
+    <div>
+      <h3>List of Products</h3>
+      <div>
+        <span>Iphone</span><br />
+        <span>Price: 900 €</span>
+        <input
+          for="2"
+          type="button"
+          id="addPhoneToCart"
+          value="Add to shopping cart"
+        />
+      </div>
+      <br />
+      <div>
+        <span>Nintendo DS</span><br />
+        <span>Price: 1200 €</span>
+        <input
+          type="button"
+          id="addNintendoToCart"
+          value="Add to shopping car"
+        />
+      </div>
+      <br />
+      <div>
+        <span>MacBook Air</span><br />
+        <span>Price: 3200 €</span>
+        <input
+          type="button"
+          id="addMackbookToCart"
+          value="Add to shopping car"
+        />
+      </div>
+    </div>
+    <hr />
+    <div>
+      <h3>Shopping Cart</h3>
+      <input
+        type="button"
+        id="showShoppingCart"
+        value="Show Shopping Cart Products"
+      />
+      <div id="shoppingCart">
+        <!-- Display shopping cart products-->
+      </div>
+      <h3>
+        Total Price
+      </h3>
+
+      <span id="total">
+        <!-- show total price-->
+      </span>
+      <input type="button" id="totalPrice" value="Show total price" />
+    </div>
+
+    <script>
+      /*
+       * Shopping Cart
+       * Product:
+       *  name: 'Iphone'
+       *  price: 900
+       */
+        const iPhone = {
+            name: 'Iphone',
+            price: 900
+        }
+      /*
+       * Get button's element
+       */
+      //add your code here
+        let shoppingCart = [];
+        
+
+
+      /*
+       * create a shoppingCart variable to store each product object that you add to your shopping store. 
+       */
+      // Add you code here
+
+      /*
+       * Add products to your shoppingCart store and update the quantity.
+       */
+      function addIphoneToShoppingCart() {
+        shoppingCart.push(iPhone);
+      }
+
+      function addNintendoToShoppingCart() {
+        shoppingCart.push(
+        {name: 'Nintendo',
+        price: 1200
+        });
+      }
+
+      function addMackbookToShoppingCart() {
+        shoppingCart.push({
+            name: 'Macbook Air',
+            price: 3200
+
+        });
+      }
+
+      /*
+       * showShoppingCartProducts: Display the list of products when the user clicks on "Show shopping cart list" button.
+       */
+      function showShoppingCartProducts() {
+        const shoppingCartEl = document.getElementById('shoppingCart');
+        for (let i = 0; i < shoppingCart.length; i++) {
+            let item = `
+            <span>${shoppingCart[i].name}</span><br />
+            <span>${shoppingCart[i].price}</span>
+            `;
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = item;
+            shoppingCartEl.appendChild(wrapper);
+
+        }
+      }
+
+      /*
+       * BONUS
+       * showTotalPrice: Display the total price when the user clicks on "Show total Price" product.
+       */
+
+       function reducer(total, currentArrayItem) {
+        total += currentArrayItem.price;
+        return total;
+      };
+
+      function showTotalPrice() {
+        let totalPrice = 0;
+        for (let i = 0; i < shoppingCart.length; i++) {
+          totalPrice += shoppingCart[i].price;
+        }
+
+        // totalPrice = shoppingCart.reduce(reducer, 0); // reduce method
+
+        document.getElementById('total').innerHTML = `Total price: ${totalPrice} €`;
+      }
+
+      /*
+       * add Event Listener here
+       */
+
+      document.getElementById('showShoppingCart').addEventListener('click', showShoppingCartProducts);
+      document.getElementById('totalPrice').addEventListener('click', showTotalPrice);
+
+      /*
+       * add Event Listener here
+       */
+
+        const addIphoneBtn = document.getElementById('addPhoneToCart');
+        addIphoneBtn.addEventListener('click', addIphoneToShoppingCart);
+        document.getElementById('showShoppingCart').addEventListener('click', showShoppingCartProducts);
+
+        const addNintendoBtn = document.getElementById('addNintendoToCart');
+        addNintendoBtn.addEventListener('click', addNintendoToShoppingCart);
+        document.getElementById('showShoppingCart').addEventListener('click', showShoppingCartProducts);
+
+        const addMackbookBtn = document.getElementById('addMackbookToCart');
+        addMackbookBtn.addEventListener('click', addMackbookToShoppingCart);
+        document.getElementById('showShoppingCart').addEventListener('click', showShoppingCartProducts);
+
+
+    </script>
+  </body>
+</html>
