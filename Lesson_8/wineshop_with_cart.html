@@ -60,41 +60,36 @@
                 currency: 'EUR'
             },
         ]
-        let wineId = 0;
-        let wine;
 
-        for (wine of wines) {
+        for (let i = 0; i < wines.length; i++) {
             const wineListEl = document.getElementById('wineList');
             wineListEl.innerHTML = wineListEl.innerHTML + `
-            <p id="wineTitle">${wine.title}</p>
+            <p id="wineTitle">${wines[i].title}</p>
             <ul>
-                <li>Type: ${wine.type}</li>
-                <li>Origin: ${wine.origin.country}/${wine.origin.region}/${wine.origin.winery}</li>
-                <li>Year: ${wine.year}</li>
-                <li>Grapes: ${wine.grapes}</li>
-                <li>Price: ${wine.price} ${wine.currency}</li>
+                <li>Type: ${wines[i].type}</li>
+                <li>Origin: ${wines[i].origin.country}/${wines[i].origin.region}/${wines[i].origin.winery}</li>
+                <li>Year: ${wines[i].year}</li>
+                <li>Grapes: ${wines[i].grapes}</li>
+                <li>Price: ${wines[i].price} ${wines[i].currency}</li>
             </ul>
             <input
             type="button"
-            id="addWineBtn${wineId}"
+            id="addWineBtn${i}"
             value="Add to cart"
             />
             `;
-            const addWineBtn = document.getElementById('addWineBtn' + wineId);
-            addWineBtn.value = 'ABC' + wineId;
-            //addWineBtn.addEventListener("click", function(){addWineToCart(wineId);});
-            addWineBtn.addEventListener('click', addWineToCart);
-
-            //document.getElementById('showShoppingCart').addEventListener('click', showShoppingCartProducts);
-            wineId = wineId + 1;
         }
-        
-        function addWineToCart() {
-            alert('Adding wine to the shopping cart');
+
+        for(let i = 0; i < wines.length; i++)
+        {
+            const addWineBtn = document.getElementById('addWineBtn' + i);
+            addWineBtn.addEventListener("click", function(){addWineToCart(i);});
+        }    
+
+        function addWineToCart(wId) {
+            alert('Adding wine' + wId + ' to the shopping cart');
         };       
- //       function addWineToCart(wId) {
- //           alert('Adding ${wId} to the shopping cart');
- //       };       
+
     </script>
 
 </body>
