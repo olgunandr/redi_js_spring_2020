@@ -12,6 +12,17 @@
         <div id="wineList">
         </div>
     </div>
+    <br>
+    <hr />
+    <div>
+        <h3>Shopping Cart</h3>
+        <button id="showShoppingCartBtn">Show shopping cart</button>
+        <div id="shoppingCart">
+        </div>
+        <h3>Total Price</h3>
+        <div id="total"></div>
+    </div>
+
     <script>
         let wines = [
             {
@@ -60,6 +71,7 @@
                 currency: 'EUR'
             },
         ]
+        let shoppingCart = [];
 
         for (let i = 0; i < wines.length; i++) {
             const wineListEl = document.getElementById('wineList');
@@ -72,23 +84,42 @@
                 <li>Grapes: ${wines[i].grapes}</li>
                 <li>Price: ${wines[i].price} ${wines[i].currency}</li>
             </ul>
-            <input
-            type="button"
-            id="addWineBtn${i}"
-            value="Add to cart"
-            />
+            <button id="addWineBtn${i}">Add to cart</button>
             `;
         }
 
-        for(let i = 0; i < wines.length; i++)
-        {
+        for (let i = 0; i < wines.length; i++) {
             const addWineBtn = document.getElementById('addWineBtn' + i);
-            addWineBtn.addEventListener("click", function(){addWineToCart(i);});
-        }    
+            addWineBtn.addEventListener("click", function () { addWineToCart(i); });
+        }
 
         function addWineToCart(wId) {
-            alert('Adding wine' + wId + ' to the shopping cart');
-        };       
+            shoppingCart.push(
+                {
+                    title: wines[wId].title,
+                    price: wines[wId].price
+                });
+            const addWineBtn = document.getElementById('addWineBtn' + wId);
+            addWineBtn.disabled = true;
+            console.log(shoppingCart);
+        };
+
+        function showShoppingCartProducts() {
+            let totalPrice = 0;
+            const shoppingCartEl = document.getElementById('shoppingCart');
+            for (let i = 0; i < shoppingCart.length; i++) {
+                let item = `
+                <span>${shoppingCart[i].title}</span><br />
+                <span>Price: ${shoppingCart[i].price}€</span>
+                `;
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = item;
+                shoppingCartEl.appendChild(wrapper);
+                totalPrice = totalPrice + shoppingCart[i].price;
+            }
+            document.getElementById('total').textContent = totalPrice + '€';
+        }
+        document.getElementById('showShoppingCartBtn').addEventListener('click', showShoppingCartProducts);
 
     </script>
 
