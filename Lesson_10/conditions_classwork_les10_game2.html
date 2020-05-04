@@ -1,0 +1,33 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions if else</title>
+</head>
+
+<body>
+
+
+    <script>
+        const myColor = 'orange';
+        console.log('our color is ${myColor}');
+        const input = prompt('Guess my color');
+        console.log('users color - ${input}');
+
+        switch (input) {
+            case "red":
+                alert('Red is not my color');
+                break;
+            case myColor:
+                alert('You are right!');
+                break;
+            default: alert("Sorry, you have not guessed");
+        }
+    </script>
+
+
+
+</body>
+
+</html>

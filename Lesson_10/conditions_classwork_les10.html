@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions if else</title>
+</head>
+<body>
+
+    
+    <script> 
+        const myNumber = Math.round(Math.random()*10);
+        console.log('our number is ${myNumber}');
+        console.log('typeof myNumber - ${typeof myNumber}');
+        const input = Number(prompt('Guess my number'));
+        console.log('typeof input - ${typeof input}');
+
+
+
+        if(input === myNumber) {
+            alert('You won!');
+        }else if(input > myNumber) {
+            alert('Number is too big.');
+        }else if(input < myNumber) {
+            alert('Number is too small');
+        }  
+
+    </script>
+
+
+
+</body>
+</html>
