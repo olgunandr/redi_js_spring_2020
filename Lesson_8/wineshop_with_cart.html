@@ -1,0 +1,127 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>Our online shop offers the following wines: </h2>
+        <div id="wineList">
+        </div>
+    </div>
+    <br>
+    <hr />
+    <div>
+        <h3>Shopping Cart</h3>
+        <button id="showShoppingCartBtn">Show shopping cart</button>
+        <div id="shoppingCart">
+        </div>
+        <h3>Total Price</h3>
+        <div id="total"></div>
+    </div>
+
+    <script>
+        let wines = [
+            {
+                title: 'Primitivo',
+                type: 'red',
+                origin: { country: 'Italy', region: 'Salento', winery: 'Verosso' },
+                year: 2016,
+                grapes: 'primitivo',
+                price: 4.34,
+                currency: '€'
+            },
+            {
+                title: 'Chianti',
+                type: 'red',
+                origin: { country: 'Italy', region: 'Chianti', winery: 'Piccini' },
+                year: 2017,
+                grapes: 'Cabernet Sauvignon, Merlot, Sangiovese, Tempranillo, Ciliegiolo',
+                price: 11.82,
+                currency: '€'
+            },
+            {
+                title: 'Amarone della Valpolicella Classico',
+                type: 'red',
+                origin: { country: 'Italy', region: 'Amarone della Valpolicella Classico', winery: 'Tommasi' },
+                year: 2015,
+                grapes: 'Rondinella, Molinara, Corvinone, Corvina Veronese',
+                price: 35.90,
+                currency: '€'
+            },
+            {
+                title: 'Valdobbiadene Millesimato Brut 2017',
+                type: 'sparkling',
+                origin: { country: 'Italy', region: 'Conegliano-Valdobbiadene Prosecco', winery: 'Borgo Molino' },
+                year: 2019,
+                grapes: 'Glera',
+                price: 14.90,
+                currency: '€'
+            },
+            {
+                title: 'Oberhäuser Brücke Riesling Spätlese 2015',
+                type: 'white',
+                origin: { country: 'Germany', region: 'Nahe', winery: 'Dönnhoff' },
+                year: 2015,
+                grapes: 'Riesling',
+                price: 26.50,
+                currency: '€'
+            },
+        ]
+        let shoppingCart = [];
+
+        for (let i = 0; i < wines.length; i++) {
+            const wineListEl = document.getElementById('wineList');
+            wineListEl.innerHTML = wineListEl.innerHTML + `
+            <p id="wineTitle">${wines[i].title}</p>
+            <ul>
+                <li>Type: ${wines[i].type}</li>
+                <li>Origin: ${wines[i].origin.country}/${wines[i].origin.region}/${wines[i].origin.winery}</li>
+                <li>Year: ${wines[i].year}</li>
+                <li>Grapes: ${wines[i].grapes}</li>
+                <li>Price: ${wines[i].price} ${wines[i].currency}</li>
+            </ul>
+            <button id="addWineBtn${i}">Add to cart</button>
+            `;
+        }
+
+        for (let i = 0; i < wines.length; i++) {
+            const addWineBtn = document.getElementById('addWineBtn' + i);
+            addWineBtn.addEventListener("click", function () { addWineToCart(i); });
+        }
+
+        function addWineToCart(wId) {
+            shoppingCart.push(
+                {
+                    title: wines[wId].title,
+                    price: wines[wId].price
+                });
+            const addWineBtn = document.getElementById('addWineBtn' + wId);
+            addWineBtn.disabled = true;
+        };
+
+        function showShoppingCartProducts() {
+            let totalPrice = 0;
+            const shoppingCartEl = document.getElementById('shoppingCart');
+            for (let i = 0; i < shoppingCart.length; i++) {
+                let item = `
+                <span>${shoppingCart[i].title}</span><br />
+                <span>Price: ${shoppingCart[i].price}€</span>
+                `;
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = item;
+                shoppingCartEl.appendChild(wrapper);
+                totalPrice = totalPrice + shoppingCart[i].price;
+            }
+            document.getElementById('total').textContent = totalPrice + '€';
+        }
+        document.getElementById('showShoppingCartBtn').addEventListener('click', showShoppingCartProducts);
+
+    </script>
+
+</body>
+
+</html>
