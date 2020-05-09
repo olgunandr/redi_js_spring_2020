@@ -1,0 +1,26 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="debuggingIsFunBtn">Debugging is Fun!</button>
+    <script>
+        const debuggingIsFunBtn = document.getElementById('debuggingIsFunBtn');
+        debuggingIsFunBtn.addEventListener('click', debuggingIsFun);
+
+        function debuggingIsFun() {
+            //HINT: use the debugger to see the value of 'firstHalf' and 'secondHalf'
+            const str = 'Debugging is hard but is fun!';
+            const firstHalf = str.substring(0, 13);
+            const secondHalf = str.substring(25, 28);
+            const finalStr = firstHalf + secondHalf;
+            console.log(finalStr);
+        }
+    </script>
+</body>
+
+</html>
