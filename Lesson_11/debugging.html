@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="printNumbersBtn">Print numbers 1-10</button>
+    <script>
+
+
+        const printNumbersBtn = document.getElementById('printNumbersBtn');
+        printNumbersBtn.addEventListener('click', printNumbers);
+
+        function printNumbers() {
+            let string = '';
+            for (let i = 1; i <= 10; i++) {
+                string = string + i + ' ';
+            }
+            string = string.substring(0, string.length - 1);
+            console.log(string);
+        }
+
+    </script>
+</body>
+
+</html>

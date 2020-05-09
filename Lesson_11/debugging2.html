@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="countBy10Btn">Count by 10's</button>
+    <script>
+        const countBy10Btn = document.getElementById('countBy10Btn');
+        countBy10Btn.addEventListener('click', countBy10);
+
+        function countBy10() {
+            let arrayOf10s = [];
+            for (index=0; index <= 10; index++)  {
+                arrayOf10s[index] = index*10;
+            }
+            console.log(arrayOf10s);
+        }
+    </script>
+</body>
+
+</html>
