@@ -1,0 +1,40 @@
+body {
+    font-family: 'Jaldi';
+    margin-left: 2%;
+}
+h1 {
+    font-family: 'Coming Soon';
+}
+.wineCard {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    margin: 0px 30px 50px 10px;
+}
+.wineImage {
+    padding-left: 3%;
+}
+.imageOfWine {
+    height: 300px;
+}    
+.wineTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+.checked {
+    color: orange;
+  }
+.wineBtn {
+    font-size: 100%;
+    border-radius: 8px;
+    padding: 4px 20px;
+    background-color: rgb(233, 233, 233);
+    font-family: 'Jaldi';
+}
+.wineProperties {
+    padding-left: 60px;
+}

@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Jaldi' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Coming Soon' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Wine shop</title>
 </head>
 
 <body>
+    <h1>WINELAND</h1>
     <div>
-        <h2>Our online shop offers the following wines: </h2>
+        <h2>Choose one of your favourite wines: </h2>
         <div id="wineList">
         </div>
     </div>
@@ -27,52 +32,63 @@
         let wines = [
             {
                 title: 'Primitivo',
+                image: 'https://tmarchettico.com/wp-content/uploads/Verosso.jpg',
                 type: 'red',
                 origin: { country: 'Italy', region: 'Salento', winery: 'Verosso' },
                 year: 2016,
                 grapes: 'primitivo',
                 price: 4.34,
                 currency: '€',
+                rating: 3,
                 amount: 10
             },
             {
                 title: 'Chianti',
+                image: 'https://images.vivino.com/thumbs/_qpGWd60REu70cwIMqQHSw_pb_x600.png',
                 type: 'red',
                 origin: { country: 'Italy', region: 'Chianti', winery: 'Piccini' },
                 year: 2017,
                 grapes: 'Cabernet Sauvignon, Merlot, Sangiovese, Tempranillo, Ciliegiolo',
                 price: 11.82,
                 currency: '€',
+                rating: 4,
                 amount: 3
             },
             {
+
                 title: 'Amarone della Valpolicella Classico',
+                image: 'https://images.vivino.com/thumbs/WjrUTKpXSM2j7A82Xkkh7g_pb_x600.png',
                 type: 'red',
                 origin: { country: 'Italy', region: 'Amarone della Valpolicella Classico', winery: 'Tommasi' },
                 year: 2015,
                 grapes: 'Rondinella, Molinara, Corvinone, Corvina Veronese',
                 price: 35.90,
                 currency: '€',
+                rating: 5,
                 amount: 1
             },
             {
-                title: 'Valdobbiadene Millesimato Brut 2017',
+                title: 'Brut (Carte Jaune) Champagne',
+                image: 'https://images.vivino.com/thumbs/s2PDIn8CQm-hAVb8u00QQw_pb_x600.png',
                 type: 'sparkling',
-                origin: { country: 'Italy', region: 'Conegliano-Valdobbiadene Prosecco', winery: 'Borgo Molino' },
-                year: 2019,
-                grapes: 'Glera',
-                price: 14.90,
+                origin: { country: 'France', region: 'Champagne', winery: 'Veuve Clicquot' },
+                year: 2017,
+                grapes: 'Chardonnay, Pinot Noir, Pinot Meunier',
+                price: 44.73,
                 currency: '€',
+                rating: 5,
                 amount: 0
             },
             {
                 title: 'Oberhäuser Brücke Riesling Spätlese 2015',
+                image: 'https://cdn.vinello.de/media/image/eb/63/0b/doennhoff-oberhauser-brucke-riesling.png',
                 type: 'white',
                 origin: { country: 'Germany', region: 'Nahe', winery: 'Dönnhoff' },
                 year: 2015,
                 grapes: 'Riesling',
                 price: 26.50,
                 currency: '€',
+                rating: 4,
                 amount: 2
             },
         ]
@@ -89,17 +105,32 @@
             else if (Number(wines[i].amount) <= 3)
                 amountComment = 'almost out of stock';
 
+            if(wines[i].rating < 0)
+                wines[i].rating = 0;
+            else if(wines[i].rating > 5)
+                wines[i].rating = 5;
+
+            let ratingHtml = '<span class="fa fa-star checked"></span>'.repeat(wines[i].rating)
+                                 + '<span class="fa fa-star"></span>'.repeat(5 - wines[i].rating);
+
             wineListEl.innerHTML = wineListEl.innerHTML + `
-            <p id="wineTitle">${wines[i].title}</p>
-            <ul>
-                <li>Type: ${wines[i].type}</li>
-                <li>Origin: ${wines[i].origin.country}/${wines[i].origin.region}/${wines[i].origin.winery}</li>
-                <li>Year: ${wines[i].year}</li>
-                <li>Grapes: ${wines[i].grapes}</li>
-                <li>Price: ${wines[i].price} ${wines[i].currency}</li>
-                <li>Amount: ${wines[i].amount} ${amountComment} </li>
-            </ul>
-            <button id="addWineBtn${i}">Add to cart</button>
+            
+            <div class="wineCard">
+                <div class="wineImage">
+                    <img class="imageOfWine" src="${wines[i].image}" alt="Image of ${wines[i].title}">
+                </div>
+                <div class="wineProperties">
+                    <span class="wineTitle">${wines[i].title}</span> <br>
+                    <b>Type</b>: ${wines[i].type}<br>
+                    <b>Origin</b>: ${wines[i].origin.country}/${wines[i].origin.region}/${wines[i].origin.winery} <br>
+                    <b>Year</b>: ${wines[i].year} <br>
+                    <b>Grapes</b>: ${wines[i].grapes} <br>
+                    <b>Price</b>: ${wines[i].price} ${wines[i].currency} <br>
+                    <b>Amount</b>: ${wines[i].amount} ${amountComment} <br>
+                    <p class="starRating">${ratingHtml}</p>
+                    <p><button class="wineBtn" id="addWineBtn${i}">Add to cart</button></p>
+                </div>
+            </div> 
             `;
         }
 
@@ -136,7 +167,6 @@
         document.getElementById('showShoppingCartBtn').addEventListener('click', showShoppingCartProducts);
 
     </script>
-
 </body>
 
 </html>
