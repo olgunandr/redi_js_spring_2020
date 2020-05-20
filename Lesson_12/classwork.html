@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>FirstLastLetter</title>
+</head>
+
+<body>
+    <script>
+        const words = [
+            'interfere',
+            'soojee',
+            'victrice',
+            'civilisations',
+            'succinonitrile',
+            'dogfighters',
+            'tempeh'
+        ];
+
+        function removeFirstLast(str) {
+          //  return str.slice(1).slice(0, -1); // cuts the first and the last letters
+            return word.slice(1,-1);
+        };
+
+        const correctAnswer = [
+            'nterfer',
+            'ooje',
+            'ictric',
+            'ivilisation',
+            'uccinonitril',
+            'ogfighter',
+            'empe'
+        ];
+
+        const correct = JSON.stringify(correctAnswer) === JSON.stringify(words.map(removeFirstLast));
+        console.log('correct answer?', correct);
+
+    </script>
+</body>
+
+</html>

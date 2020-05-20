@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum Positive Numbers</title>
+</head>
+
+<body>
+    <script>
+        const testNums = [
+            1,
+            -4,
+            7,
+            12
+        ];
+
+        function positiveSum(nums) {
+            let sum = 0;
+            for (let index = 0; index < nums.length; index++) {
+                const element = nums[index];
+                if (element > 0) {
+                    sum += element;
+                }
+            }
+            return sum;
+        };
+
+        const answer = positiveSum(testNums);
+
+        console.log('The correct sum', answer === 20);
+
+    </script>
+</body>
+
+</html>
