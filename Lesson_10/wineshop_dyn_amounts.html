@@ -169,6 +169,7 @@
         function showShoppingCartProducts() {
             let totalPrice = 0;
             const shoppingCartEl = document.getElementById('shoppingCart');
+            shoppingCartEl.innerHTML = "";
             for (let i = 0; i < shoppingCart.length; i++) {
                 let item = `
                 <span>${shoppingCart[i].title}</span><br />
